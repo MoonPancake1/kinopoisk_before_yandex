@@ -1,0 +1,9 @@
+.env
+.vscode
+.idea
+__pycache__
+venv
+*.db
+*.log
+push_on_git
+test.py
