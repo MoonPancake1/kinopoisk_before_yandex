@@ -1,6 +1,7 @@
 import os
 from flask import render_template, redirect, url_for, request
 from werkzeug.utils import secure_filename
+from uuid import uuid4
 
 from . import app, db
 from .forms import ReviewFrom, FilmFrom
@@ -23,9 +24,10 @@ def add_movie():
         film.description = form.description.data
         file = request.files['image']
         if file:
-            filename = secure_filename(file.filename)
+            filename = str(uuid4()) + '.png'
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            film.image = form.image.data.filename
+            print(form.image.data.filename)
+            film.image = filename
         db.session.add(film)
         db.session.commit()
         return redirect(url_for('movie_detail', id=film.id))

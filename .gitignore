@@ -4,6 +4,8 @@
 __pycache__
 venv
 *.db
+*.sqlite3
 *.log
 push_on_git
 test.py
+*.png
