@@ -24,9 +24,9 @@ def add_movie():
         film.description = form.description.data
         file = request.files['image']
         if file:
-            filename = str(uuid4()) + '.png'
+            filename = str(uuid4()) + '.' + form.image.data.filename.rsplit('.')[-1]
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            print(form.image.data.filename)
+            print()
             film.image = filename
         db.session.add(film)
         db.session.commit()
