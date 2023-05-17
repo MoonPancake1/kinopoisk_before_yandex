@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+
+{% block navlink %}
+<li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link active">Фильмы</a></li>
+<li class="nav-item"><a href="{{ url_for('add_movie') }}" class="nav-link">Добавить фильм</a></li>
+<li class="nav-item"><a href="{{ url_for('reviews') }}" class="nav-link">Все отзывы</a></li>
+{% endblock navlink %}
+
 {% block content %}
   {% for movie in movies %}
     <div class="col-md-4">
@@ -25,6 +32,11 @@
       </div>
     </div>
   {% else %}
-    <p class="lead">Пока тут пусто, но скоро мы это исправим!</p>
+    <div class="jumbotron d-flex align-items-center">
+      <div class="container text-center">
+        <p style="font-size:100px">&#128533;</p>
+        <p class="lead">Пока тут пусто, но скоро мы это исправим!</p>
+      </div>
+    </div>
   {% endfor %}
 {% endblock content %}

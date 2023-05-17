@@ -1,4 +1,11 @@
 {% extends 'base.html' %}
+
+{% block navlink %}
+<li class="nav-item"><a href="{{ url_for('index') }}" class="nav-link">Фильмы</a></li>
+<li class="nav-item"><a href="{{ url_for('add_movie') }}" class="nav-link active">Добавить фильм</a></li>
+<li class="nav-item"><a href="{{ url_for('reviews') }}" class="nav-link">Все отзывы</a></li>
+{% endblock navlink %}
+
 {% block content %}
   <h1 class="mt-3 display-4">Добавить фильм</h1>
   <form method="POST" action="" enctype="multipart/form-data" novalidate>
