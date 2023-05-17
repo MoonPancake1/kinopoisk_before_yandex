@@ -9,3 +9,4 @@ venv
 push_on_git
 test.py
 *.png
+.git
